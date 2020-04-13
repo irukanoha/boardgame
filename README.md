@@ -13,16 +13,6 @@ Things you may want to cover:
 
 * Database creation
 
-##groupsテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-
-### Association
-- has_many :users, through: :groups_users
-- has_many :chats
-- has_many :groups_users
-
 ##usersテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -33,6 +23,18 @@ Things you may want to cover:
 
 ### Association
 - has_many :groups, through: :groups_users
+- has_many :comments
+- has_many :groups_users
+- has_many :reviews
+
+##groupsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|title|string|null: false|
+|text|text||
+
+### Association
+- has_many :users, through: :groups_users
 - has_many :chats
 - has_many :groups_users
 
@@ -46,16 +48,42 @@ Things you may want to cover:
 - belongs_to :group
 - belongs_to :user
 
-##chatsテーブル
+##commentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |message|text||  
-|image|text||  
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
+- belongs_to :user
+
+##itemsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false| 
+|image|text|null: false|
+|rule|text|null: false|
+|people|null: false|
+|time|null: false|
+|age|null: false|
+|video||
+
+### Association
+- has_many :reviews
+
+##reviewsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|date|string|null: false| 
+|title|text|null: false|
+|text|text|null: false|
+|users_id|null: false, foreign_key: true|
+|goods_id|null: false, foreign_key: true|
+
+### Association
+- belongs_to :item
 - belongs_to :user
 
 * Database initialization
