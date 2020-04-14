@@ -1,0 +1,18 @@
+.wrapper
+  .header
+    .logo
+      = link_to  home_index_path, target: "_blank" do
+        = image_tag("boardgame-logo.png", width: '120',alt: "ロゴ")
+        初心者ボードゲーマー向け
+    %ul.menubox
+      %li.menubox__gamelist
+        =link_to "ゲーム一覧", items_path, class:"menu-btn"
+      %li.menubox__ranking
+        =link_to "ランキング", items_path, class:"menu-btn"
+      %li.menubox__group
+        =link_to "グループチャット", items_path, class:"menu-btn"
+    .rogin
+  .main
+    .chart
+  .footer 
+    %small Copyright boardgame review 2020.
