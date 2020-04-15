@@ -13,6 +13,78 @@
         =link_to "グループチャット", items_path, class:"menu-btn"
     .rogin
   .main
-    .chart
+    .choose_box
+      .app-theme
+        %p おすすめボードゲーム診断(全3問)
+      / ここから3つ質問を記述
+      / 質問1
+      #q_01.fit
+        %p 質問1: 朝は
+        %ul
+          %li
+            %a.btn{"data-value" => "a", :href => "#q_02"} ご飯派
+          %li
+            %a.btn{"data-value" => "b", :href => "#q_02"} パン派
+      / 質問2
+      #q_02{:style => "display: none;"}
+        %p 質問2:　あなたは普段、相手との会話で
+        %ul
+          %li
+            %a.btn{"data-value" => "a", :href => "#q_03"} 聞き役が多い
+          %li
+            %a.btn{"data-value" => "b", :href => "#q_03"} 話したくてウズウズ
+      / 質問3
+      #q_03{:style => "display: none;"}
+        %p 質問3:　プログラミングが
+        %ul
+          %li
+            %a.btn.end{"data-value" => "a", :href => "#q_04"} 好きだ
+          %li
+            %a.btn.end{"data-value" => "b", :href => "#q_04"} …遠慮しときます
+      / 質問4
+      -# #q_04{:style => "display: none;"}
+      -#   %p 質問4:　あなたは普段声が
+      -#   %ul
+      -#     %li
+      -#       %a.btn{"data-value" => "a", :href => "#q_05"} 大きめ
+      -#     %li
+      -#       %a.btn{"data-value" => "b", :href => "#q_05"} 小さめ
+      / 質問5
+      -# #q_05{:style => "display: none;"}
+      -#   %p 質問5:　意見を求められた時、あなたは
+      -#   %ul
+      -#     %li
+      -#       %a.btn.end{"data-value" => "a"} 自分から口火を切る
+      -#     %li
+      -#       %a.btn.end{"data-value" => "b"} 後から発言する
+      / ここから以下回答
+      #answer_01.result{:style => "display: none;"}
+        .result_theme
+          %p あなたの性格は
+        .result_type0
+          %h4 『イケイケどんどん』タイプ
+        .result_discription0
+          %h2 めっちゃ自己主張 × めっちゃスピーディ
+          %p
+            　あなたは自己主張強いのでリーダーに向いています。今すぐリーダーになろう。
+        .return-btn
+          %a.return{:href => "index.html"} もどる
+      / 回答の答え2
+      #answer_02{:style => "display: none;"}
+        .result_theme
+          %p あなたの性格は
+        .result_type1
+          %h4 『まろやか』タイプ
+        .result_discription1
+          %h2 周りを立てる人 × じっくり考える人
+          %p
+            　あなたは物事をじっくり考えて、最善策を練ることが得意。組織や周りを支えることが得意。
+        .return-btn
+          %a.return{:href => "index.html"} もどる
+
+      / この辺に回答を記述
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"}
+    %script{:src => "index.js", :type => "text/javascript"}
+
   .footer 
     %small Copyright boardgame review 2020.
